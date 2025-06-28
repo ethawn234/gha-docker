@@ -11,6 +11,8 @@ jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
+    container:
+      image: node 18
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv://${{ vars.MONGODB_USERNAME }}:${{ secrets.MONGODB_PASSWORD }}@cluster0.o2udj1h.mongodb.net/
       MONGODB_CLUSTER_ADDRESS: cluster0.ntrwp.mongodb.net
