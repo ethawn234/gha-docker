@@ -12,9 +12,9 @@ jobs:
     environment: testing
     runs-on: ubuntu-latest
     env:
-      MONGODB_CONNECTION_PROTOCOL: mongodb+srv://${{ secrets.MONGODB_USERNAME }}:${{ secrets.MONGODB_PASSWORD }}@cluster0.o2udj1h.mongodb.net/
+      MONGODB_CONNECTION_PROTOCOL: mongodb+srv://${{ vars.MONGODB_USERNAME }}:${{ secrets.MONGODB_PASSWORD }}@cluster0.o2udj1h.mongodb.net/
       MONGODB_CLUSTER_ADDRESS: cluster0.ntrwp.mongodb.net
-      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_USERNAME: ${{ vars.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     steps:
