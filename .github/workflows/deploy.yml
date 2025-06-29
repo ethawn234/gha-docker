@@ -14,7 +14,7 @@ jobs:
     container:
       image: node:18
     env:
-      MONGODB_CONNECTION_PROTOCOL: mongodb+srv
+      MONGODB_CONNECTION_PROTOCOL: mongodb
       MONGODB_CLUSTER_ADDRESS: mongo
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: example
