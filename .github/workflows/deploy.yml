@@ -14,8 +14,8 @@ jobs:
     container:
       image: node:18
     env:
-      MONGODB_CONNECTION_PROTOCOL: mongodb+srv://${{ vars.MONGODB_USERNAME }}:${{ secrets.MONGODB_PASSWORD }}@cluster0.o2udj1h.mongodb.net/
-      MONGODB_CLUSTER_ADDRESS: cluster0.ntrwp.mongodb.net
+      MONGODB_CONNECTION_PROTOCOL: mongodb+srv
+      MONGODB_CLUSTER_ADDRESS: mongo
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: example
       PORT: 8080
