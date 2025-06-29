@@ -19,6 +19,8 @@ jobs:
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: example
       PORT: 8080
+    outputs:
+      MONGODB_USERNAME: ${{ steps.username.outputs.MONGODB_USERNAME }}
     services:
       mongo:
         image: mongo
@@ -40,8 +42,9 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
+        id: username
         run: |
-          echo "MONGODB_USERNAME: $MONGODB_USERNAME"
+          echo "MONGODB_USERNAME=$MONGODB_USERNAME" >> "$GITHUB_OUTPUT"
   deploy:
     needs: test
     runs-on: ubuntu-latest
@@ -51,5 +54,5 @@ jobs:
           PORT: 3000
         run: |        
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
-          echo "MONGODB_USERNAME: $MONGODB_USERNAME"
+          echo "MONGODB_USERNAME: ${{ needs.test.outputs.MONGODB_USERNAME }}"
           echo "${{ env.PORT }}"
