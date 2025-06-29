@@ -15,7 +15,7 @@ jobs:
     #   image: node:18
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: localhost:81
+      MONGODB_CLUSTER_ADDRESS: 127.0.0.1:8989
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: example
       PORT: 8080
@@ -25,7 +25,7 @@ jobs:
       mongo:
         image: mongo
         ports:
-          - 27017:81
+          - 27017:8989
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: example
