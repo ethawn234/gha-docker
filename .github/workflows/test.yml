@@ -1,0 +1,15 @@
+name: Validate get-last-run returns last successful run
+on: workflow_dispatch
+
+jobs:
+  validate_get_last_build_wf:
+    environment: testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find matching workflow
+        uses: SamhammerAG/last-successful-build-action@v4 # This action searches for the last successful workflow-run for the given workflow-name and branch. The sha of the workflow-commit is set as output-parameter. If no matching workflow exists, the sha of the current run is emitted.
+        with:
+          token: "${{ secrets.demoToken }}"
+          branch: "main"
+          workflow: "Check last build on main"
